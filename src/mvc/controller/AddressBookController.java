@@ -5,6 +5,7 @@ import mvc.models.Person;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import static java.lang.System.in;
 import mvc.models.Person;
 import mvc.views.ContactDialog;
 import mvc.views.AddressBookMainGUI;
@@ -58,12 +59,15 @@ public class AddressBookController {
                     openEdit();
                 else if(e.getSource() == view.getDelete())
                     openDelete();
+                else if(e.getSource() == view.getSearch())
+                    openSearch();
             }
         };
         
         view.getAdd().addActionListener(actionListener);
         view.getDelete().addActionListener(actionListener);
         view.getEdit().addActionListener(actionListener);
+        view.getSearch().addActionListener(actionListener);
       
     }
     
@@ -146,6 +150,7 @@ public class AddressBookController {
         boolean valid = false;
         String name = contactDetailsPanel.getNameField().getText();
         String mobile = contactDetailsPanel.getMobileField().getText();
+        String email = contactDetailsPanel.geteMailField().getText();
         if (name==null||name.equals("")||(mobile==null||mobile.equals("")))
             JOptionPane.showMessageDialog(new JFrame(), "Fields Marked as * are Mandatory","Inane error", JOptionPane.ERROR_MESSAGE);
         else if (mobile.length()!=10)
@@ -210,6 +215,10 @@ public class AddressBookController {
           daoimplement.removePerson(name);
           loadPersons();
         }
+    }
+        
+    private void openSearch(){
+        JOptionPane.showMessageDialog(new JFrame(),"This Feature Is Under Developement","Inane error", JOptionPane.ERROR_MESSAGE);
     }
     
     public void loadPersons()       
