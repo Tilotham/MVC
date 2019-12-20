@@ -150,6 +150,8 @@ public class AddressBookController {
             JOptionPane.showMessageDialog(new JFrame(), "Fields Marked as * are Mandatory","Inane error", JOptionPane.ERROR_MESSAGE);
         else if (mobile.length()!=10)
             JOptionPane.showMessageDialog(new JFrame(), "Enter A Valid Mobile Number","Inane error", JOptionPane.ERROR_MESSAGE);
+        else if (!email.contains("@"))
+            JOptionPane.showMessageDialog(new JFrame(), "Enter A Valid e-Mail ID","Inane error", JOptionPane.ERROR_MESSAGE);
         else 
             valid = true;
         return valid;
